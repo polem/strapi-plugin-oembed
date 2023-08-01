@@ -1,6 +1,4 @@
-'use strict';
-
-const axios = require('axios');
+import axios from 'axios'
 
 const providers = [
   {
@@ -55,4 +53,4 @@ const providers = [
   },
 ];
 
-module.exports = providers;
+export default providers;

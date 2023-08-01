@@ -1,7 +1,5 @@
-'use strict';
-
-const axios = require('axios');
-const providers = require('./providers');
+import axios from 'axios'
+import providers from './providers'
 
 /**
  * media-embed.js service
@@ -9,19 +7,19 @@ const providers = require('./providers');
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
 
-module.exports = ({ strapi }) => ({
+export default ({ strapi }) => ({
   async fetch(url) {
-    const matchedProvider = resolveProvider(url);
-  
+    const matchedProvider = this.resolveProvider(url);
+
     if (!matchedProvider) {
       return {
         error: 'Invalid URL'
       };
     }
-  
+
     try {
       const fetchedData = await matchedProvider.embedData(url);
-  
+
       return {
         url,
         title: fetchedData.title,
@@ -41,7 +39,7 @@ module.exports = ({ strapi }) => ({
           };
         }
       }
-  
+
       throw new Error(error);
     }
   },

@@ -1,5 +1,4 @@
-"use strict";
-const { getService } = require("../utils");
+import { getService } from '../utils';
 
 /**
  * media-embed.js controller
@@ -7,13 +6,7 @@ const { getService } = require("../utils");
  * @description: A set of functions called "actions" of the `media-embed` plugin.
  */
 
-module.exports = {
-  /**
-   *
-   *
-   * @return {Object}
-   */
-
+export default {
   fetch: async (ctx) => {
     return await getService("oembed").fetch(ctx.request.query.url);
   },
